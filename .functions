@@ -1,0 +1,12 @@
+#!/bin/bash 
+
+function gclone {
+    git clone https://github.com/$1/$2.git ~/GitHub/$2
+}
+
+# Tools to keep this repo in sync with my current settings
+# Source Homeworld (like sz and sf)
+function sh {
+    cp ~/.functions ~/.zshrc ~/.zsh_aliases ~/GitHub/Homeworld/
+}
+

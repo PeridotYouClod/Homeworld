@@ -1,0 +1,76 @@
+GIT_HUB_DIR='~/GitHub'
+HOMEWORLD_DIR=$GIT_HUB_DIR'/Homeworld'
+MAKERBOARDS_DIR=$GIT_HUB_DIR'/gRPC-Makerboards'
+
+# Set up shell shortcuts
+alias sz='source ~/.zshrc'
+alias ee='vim ~/.zsh_aliases && sz'
+alias ef='vim ~/.functions && sz'
+alias ez='vim ~/.zshrc && sz'
+
+# Alias to Grep alias, yo dog
+alias al='alias | grep'
+
+# Invader Vim because vi, not even once
+alias vi='vim'
+alias v='vim'
+
+# Git aliases because 3+ letters is kinda a lot to type
+alias g='git'
+alias ga='g add'
+alias gc='g commit -m'
+alias gca='g commit --amend'
+alias gs='g status'
+alias gp='g pull'
+alias gd='g diff --color --color-words'
+alias gds='gd --staged'
+alias gch='g checkout'
+alias gb='g branch'
+alias gr='g rebase'
+alias gri='gr -i'
+alias grc='gr --continue'
+# Git log is lame use DAGs
+alias gl='g log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)" --all'
+alias gl2='g log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)" --all'
+# Git home
+alias gg='cd $GIT_HUB_DIR'
+# Some git things do need actual names
+alias unstage='g reset HEAD'
+alias changeauthor='gca --author' # 'Username <email@>'
+alias setuser='git config user.name "PeridotYouClod"'
+# git config user.email "
+
+# Stop thinking python 2 should ever be the default for anything
+alias p='python3'
+alias python='p'
+alias p2='python2'
+#Same goes for you pip
+alias pip2=pip
+alias pip=pip3
+
+# UIs are nice sometimes
+alias robomongo= '<DIR> /robomongo/bin/robomongo'
+
+# Current project stuff
+alias protobuild='p -m grpc.tools.protoc -I./protos --python_out=./proto_out --grpc_python_out=./proto_out ./protos/sensors.proto ./protos/config.proto'
+alias reader='p $MAKERBOARDS_DIR/Reader.py'
+alias graph='p $MAKERBOARDS_DIR/Graph.py'
+alias client='p $MAKERBOARDS_DIR/Client.py'
+alias wioserver='p $MAKERBOARDS_DIR/WioServer.py'
+alias frontendserver='p $MAKERBOARDS_DIR/FrontEndServer.py'
+alias arduinoserver='p $MAKERBOARDS_DIR/ArduinoServer.py'
+alias daoserver='p $MAKERBOARDS_DIR/DaoServer.py'
+alias pushserver='p $MAKERBOARDS_DIR/PushServer.py'
+#alias allservers='`wioserver &` && `arduinoserver &` && `frontendserver &`'
+
+# Tools to keep this repo in sync with my current settings
+alias sss='cp ~/.functions $HOMEWORLD_DIR/.functions'
+alias updatehomeworld='cp ~/.functions ~/.zshrc ~/.zsh_aliases $HOMEWORLD_DIR/'
+
+# Also this boring stuff that should be default
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
