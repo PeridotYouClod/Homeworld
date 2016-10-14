@@ -1,6 +1,6 @@
-GIT_HUB_DIR='~/GitHub'
-HOMEWORLD_DIR=$GIT_HUB_DIR'/Homeworld'
-MAKERBOARDS_DIR=$GIT_HUB_DIR'/gRPC-Makerboards'
+GITHUB_DIR=$HOME'/GitHub'
+HOMEWORLD_DIR=$GITHUB_DIR'/Homeworld'
+MAKERBOARDS_DIR=$GITHUB_DIR'/gRPC-Makerboards'
 
 # Set up shell shortcuts
 alias sz='source ~/.zshrc'
@@ -49,10 +49,18 @@ alias pip2=pip
 alias pip=pip3
 
 # UIs are nice sometimes
-alias robomongo= '<DIR> /robomongo/bin/robomongo'
+alias robomongo='~/robomongo/bin/robomongo'
+
+# Some fun chrome stuff
+alias chrome='google-chrome https://inbox.google.com/ https://play.google.com/music/listen#/pl/AMaBXyn2hwCPn6_lYQH6A9U3o-OFtbiuNkeGeh7OWABbW5Fsa9uq0H3WUPqy00_WQTDv9ms9lc7PepBH1MWaafPYhQNMj7P1bA%3D%3D calendar.google.com/calendar/ --window-position=0,0 --window-size=935,1080 --new-window --profile-directory="Default" >> /dev/null'
+alias peridot='google-chrome https://inbox.google.com/ --window-position=935,0 --window-size=935,1080 --new-window --profile-directory="Profile 1" >> /dev/null'
+alias startup='`chrome &` && `peridot &` >> /dev/null &'
 
 # Current project stuff
-alias protobuild='p -m grpc.tools.protoc -I./protos --python_out=./proto_out --grpc_python_out=./proto_out ./protos/sensors.proto ./protos/config.proto'
+PROTO_DIR=$MAKERBOARDS_DIR'/proto/'
+PROTO_OUT=$MAKERBOARDS_DIR'/generated/proto_out/'
+alias maker='cd $MAKERBOARDS_DIR'
+alias protobuild='python -m grpc.tools.protoc $PROTO_DIR/sensors.proto $PROTO_DIR/config.proto --proto_path=$PROTO_DIR --python_out=$PROTO_OUT --grpc_python_out=$PROTO_OUT'
 alias reader='p $MAKERBOARDS_DIR/Reader.py'
 alias graph='p $MAKERBOARDS_DIR/Graph.py'
 alias client='p $MAKERBOARDS_DIR/Client.py'
@@ -64,8 +72,9 @@ alias pushserver='p $MAKERBOARDS_DIR/PushServer.py'
 #alias allservers='`wioserver &` && `arduinoserver &` && `frontendserver &`'
 
 # Tools to keep this repo in sync with my current settings
-alias sss='cp ~/.functions $HOMEWORLD_DIR/.functions'
-alias updatehomeworld='cp ~/.functions ~/.zshrc ~/.zsh_aliases $HOMEWORLD_DIR/'
+# Source Homeworld (like sz and sf)
+alias sh='cp $HOME/.functions $HOME/.zshrc $HOME/.zsh_aliases $GITHUB_DIR/Homeworld/'
+alias home='cd $HOMEWORLD_DIR'
 
 # Also this boring stuff that should be default
 alias grep='grep --color=auto'
