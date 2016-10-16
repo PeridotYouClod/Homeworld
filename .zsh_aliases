@@ -53,22 +53,24 @@ alias robomongo='~/robomongo/bin/robomongo'
 
 # Some fun chrome stuff
 alias chrome='google-chrome https://inbox.google.com/ https://play.google.com/music/listen#/pl/AMaBXyn2hwCPn6_lYQH6A9U3o-OFtbiuNkeGeh7OWABbW5Fsa9uq0H3WUPqy00_WQTDv9ms9lc7PepBH1MWaafPYhQNMj7P1bA%3D%3D calendar.google.com/calendar/ --window-position=0,0 --window-size=935,1080 --new-window --profile-directory="Default" >> /dev/null'
-alias peridot='google-chrome https://inbox.google.com/ --window-position=935,0 --window-size=935,1080 --new-window --profile-directory="Profile 1" >> /dev/null'
+alias peridot='google-chrome https://inbox.google.com/ https://github.com/PeridotYouClod/gRPC-Makerboards --window-position=935,0 --window-size=935,1080 --new-window --profile-directory="Profile 1" >> /dev/null'
 alias startup='`chrome &` && `peridot &` >> /dev/null &'
 
 # Current project stuff
 PROTO_DIR=$MAKERBOARDS_DIR'/proto/'
 PROTO_OUT=$MAKERBOARDS_DIR'/generated/proto_out/'
 alias maker='cd $MAKERBOARDS_DIR'
-alias protobuild='python -m grpc.tools.protoc $PROTO_DIR/sensors.proto $PROTO_DIR/config.proto --proto_path=$PROTO_DIR --python_out=$PROTO_OUT --grpc_python_out=$PROTO_OUT'
+alias protobuild='python -m grpc.tools.protoc $PROTO_DIR/*.proto --proto_path=$PROTO_DIR --python_out=$PROTO_OUT --grpc_python_out=$PROTO_OUT'
 alias reader='p $MAKERBOARDS_DIR/Reader.py'
 alias graph='p $MAKERBOARDS_DIR/Graph.py'
 alias client='p $MAKERBOARDS_DIR/Client.py'
+alias streamclient='p $MAKERBOARDS_DIR/Client_Streaming.py'
 alias wioserver='p $MAKERBOARDS_DIR/WioServer.py'
-alias frontendserver='p $MAKERBOARDS_DIR/FrontEndServer.py'
+alias frontend='p $MAKERBOARDS_DIR/FrontEndServer.py'
 alias arduinoserver='p $MAKERBOARDS_DIR/ArduinoServer.py'
 alias daoserver='p $MAKERBOARDS_DIR/DaoServer.py'
 alias pushserver='p $MAKERBOARDS_DIR/PushServer.py'
+alias pushfrontend='p $MAKERBOARDS_DIR/PushFrontEnd.py'
 #alias allservers='`wioserver &` && `arduinoserver &` && `frontendserver &`'
 
 # Tools to keep this repo in sync with my current settings
